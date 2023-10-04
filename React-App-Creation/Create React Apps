@@ -1,0 +1,5 @@
+# go to relevant location using terminal
+# npx creare-react-app appName
+# after that the react app will be created,
+# to locally up the app, use following command in terminal. before tha you have to be in that created app folder. 
+# npm start
