@@ -1,0 +1,20 @@
+useState() method is used for changing the state of the component without writing a separate class.
+
+<!-- const [state, setStateValue] = useState(initialValue); -->
+
+state = this could be a text, boolean, int etc. state should have a initial value.
+setStateValue() = this method changes the state value after the event happens. (button click or something)
+
+<!-- **State is isolated and private  -->
+# State is local to a component instance on the screen. In other words, if you render the same component twice, each copy will have completely isolated state! Changing one of them will not affect the other.
+
+# Unlike props, state is fully private to the component declaring it
+
+ <!-- Recap -->
+# Use a state variable when a component needs to “remember” some information between renders.
+# State variables are declared by calling the useState Hook.
+# Hooks are special functions that start with use. They let you “hook into” React features like state.
+# Hooks might remind you of imports: they need to be called unconditionally. Calling Hooks, including useState, is only valid at the top level of a component or another Hook.
+# The useState Hook returns a pair of values: the current state and the function to update it.
+# You can have more than one state variable. Internally, React matches them up by their order.
+# State is private to the component. If you render it in two places, each copy gets its own state.

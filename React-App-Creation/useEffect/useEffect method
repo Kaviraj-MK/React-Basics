@@ -1,0 +1,15 @@
+# useEffect() is used to manage side effects that are not related to components render.
+
+Usages,
+ 1.console messages, 
+ 2.loading data,
+ 3.working with animations
+
+ # Effects let a component connect to and synchronize with external systems. This includes dealing with network, browser DOM, animations, widgets written using a different UI library, and other non-React code.
+
+useEffect connects a component to an external system.
+
+useEffect(() => {}, [])
+# in useEfferct first we define the process that we need to do with call back function.
+# then we use the array; called as "dependency array" for defining when this should be called. 
+# Or we can add value to listen for any changes in this array.
