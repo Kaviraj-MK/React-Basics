@@ -1,1 +1,3 @@
 # React-Basics
+
+npm install
