@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Creating a react component</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script 
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+      crossorigin
+    ></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Header () {
+            return (
+                <header>
+                    <h1>This is new Component testing.</h1>
+                </header>
+            );
+        };
+
+        function Main () {
+            return (
+                <section>
+                    <p>This is a testing of component rendering. in ReactDOM we cannot add multiple components at same time. if we have multiple component, what we have to do is adding them all to one single component and call that component in the ReactDOM</p>    
+                </section>
+            );
+        };
+
+        function Collection () {
+            return (
+                <div>
+                    <Header />
+                    <Main />
+                </div>
+            );
+        }
+        ReactDOM.render(
+            <Collection />,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

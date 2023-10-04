@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Component Property</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script 
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+      crossorigin
+    ></script>
+</head>
+<body>
+    <div id="student"></div>
+    <script type="text/babel">
+        function Header () {
+            return (
+                <header>
+                  <h1>Student Details.</h1>
+                </header>
+            );
+        }
+
+        function Form () {
+          return (
+            <form>
+              <label>Name : </label>
+              <input type="text"></input>
+            </form>
+          );
+        }
+
+        function Display(props) {
+          return (
+            <div>
+                <p>Hi {props.name}. Now you're at grade {props.grade}</p>
+            </div>
+          );
+        }
+
+        function Footer(props) {
+          return (
+            <footer>
+              <p>Copyright {props.year}</p>
+            </footer>
+          );
+        }
+
+        function Collection () {
+          return (
+            <div>
+              <Header/>
+              <Form/>
+// We add numerical values using {}
+              <Display name = "Anuradha" grade={10}/>
+              <Footer year = {new Date().getFullYear()}/>
+            </div>
+          );
+        }
+
+        ReactDOM.render(
+          <Collection/>,
+          document.getElementById("student")
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script 
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+      crossorigin
+    ></script>
+    <title>React ⚛️</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="rootParagraph"></div>
+    <div id="unOrderedList"></div>
+    <div id="babelTesting"></div>
+    <script type="text/javascript">
+      let paragraph = React.createElement(
+        "p", 
+        null, 
+        "This is a paragraph. Check below");
+
+        let unorderedList = React.createElement(
+          "ul",
+          {
+            style : {
+              color: "red"
+            }
+          },
+          React.createElement("li", null, "snape"),
+          React.createElement("li", null, "Lily"),
+          React.createElement("li", null, "James")
+        );
+
+        ReactDOM.render( React.createElement("h1", null, "HEY Lily"),
+          document.getElementById("root")
+        );
+
+      ReactDOM.render(
+        paragraph,
+        document.getElementById("rootParagraph")
+      );
+
+      ReactDOM.render(
+        unorderedList,
+        document.getElementById("unOrderedList")
+      );
+    </script>
+    
+<!-- using babel -->
+    <script type="text/babel">
+        let babelItem = "Babel Is Here";
+        let babelList = 
+        <ul>
+            <li>{babelItem}</li>
+            <li>{babelItem.length}</li>
+            <li>{babelItem.toUpperCase()}</li>
+            <li>{babelItem}</li>
+        </ul>;
+
+        ReactDOM.render(
+          babelList,
+          document.getElementById("babelTesting")
+        );
+    </script>
+  </body>
+</html>

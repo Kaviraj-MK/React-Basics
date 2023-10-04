@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>List of Items</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script 
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+      crossorigin
+    ></script>
+</head>
+<body>
+    <div id ="rootDiv"></div>
+    <script type="text/babel">
+        
+        function Header(props) {
+            return(
+                <header>
+                    <h1>{props.stName}'s Subject List</h1>                    
+                </header>
+            );
+        }
+
+        const subjects = ["Sinhala", "Tamil", "English", "Science", "Maths", "French"];
+
+        function Footer(props) {
+            return (
+                <footer>
+                    <p>Copyright {props.year}</p>
+                </footer>
+            );
+        }
+
+        function List(props) {
+            return (
+                <section>
+                    <ul>
+                        {props.subjectName.map((dish) => (
+                            <li>{dish}</li>
+                        ))}
+                    </ul>
+                </section>
+            );
+        }
+
+        function Collection () {
+            return (
+                <div>
+                    <Header stName="Kamal"/>
+                    <List subjectName = {subjects}/>
+                    <Footer year = {new Date().getFullYear()}/>
+                </div>
+            );
+        }
+
+        ReactDOM.render(
+            <Collection/>,
+            document.getElementById("rootDiv")
+            );
+    </script>
+</body>
+</html>

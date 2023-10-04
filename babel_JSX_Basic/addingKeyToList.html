@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script 
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+      crossorigin
+    ></script>
+</head>
+<body>
+    <div id="studentList"></div>
+    <script type="text/babel">
+
+        function Header (props) {
+            return (
+                <header>
+                    <h1>{props.name}'s Subject List and Sport Lists</h1>
+                </header>
+            );
+        }
+
+        const subjects = ["Maths", "Science", "English"];
+        const sports = ["cricket", "carrom", "table tennis"];
+
+        // When rendering the subject list, if you check the browser console
+        // an error pops up saying, react.development.js:245 Warning: Each child in a list should have a unique "key" prop.
+        // This type of functions occured several issues.
+        // Adding more elements to middle or first of the list makes some issues,
+        // Fixed issue will be on sport List
+
+       function SubjectList (props) {
+        return (
+            <section>
+                <h2>Subjects List</h2>
+                <ul>
+                    {props.subjectName.map((subject) => (
+                        <li>{subject}</li>
+                    ))}
+                </ul>
+            </section>
+        );
+       }
+
+    //    We are using object to inject the sport list data
+       const sportObject = sports.map(
+        (sport, index) => (
+            {
+                id: index,
+                title:sport
+            }
+        )
+       );
+
+        function SportList (props) {
+            return (
+                <section>
+                    <h2>Sport list</h2>
+                    <ul>
+                        {props.sportName.map((sport) => (
+                            <li key={sport.key}>{sport.title}</li>
+                        ))}
+                    </ul>
+                </section>
+            );
+        }
+
+        function Footer (props) {
+            return (
+                <footer>
+                    <p>Copyright {props.year}</p>
+                </footer>
+            );
+        }
+
+        function Collection () {
+            return (
+                <div>
+                    <Header name="Arjun"/>
+                    <SubjectList subjectName = {subjects}/>
+                    <SportList sportName = {sportObject}/>
+                    <Footer year = {new Date().getFullYear()}/>
+                </div>
+            );
+        }
+
+        ReactDOM.render(
+                <Collection/>,
+                document.getElementById("studentList")
+        );
+    </script>
+</body>
+</html>

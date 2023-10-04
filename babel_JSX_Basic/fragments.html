@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script 
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+      crossorigin
+    ></script>
+    <script src='main.js'></script>
+</head>
+<body>
+    <div id="fragments"></div>
+    <script type="text/babel">
+
+        const subjects = ["Sinhala", "Science", "Maths", "English"];
+        const subjectObject = subjects.map(
+            (subject, index) => (
+                {
+                    id:index,
+                    title:subject
+                }
+        )
+        );
+
+        function Header (props) {
+            return (
+                <header>
+                    <h1>{props.type} Portal</h1>
+                    <img src = "https://images.pexels.com/photos/5212653/pexels-photo-5212653.jpeg?auto=compress&cs=tinysrgb&w=600"
+                         height = {200}
+                         alt = "Student Main Image"
+                    />
+                </header>
+            );
+        }
+
+        function Subject (props) {
+            return (
+                <section>
+                    <h2>Subject List</h2>
+                    <ul>
+                        {props.subject.map((subject) => (
+                            <li key = {subject.id}>{subject.title}</li>
+                        ))}
+                    </ul>
+                </section>
+            );
+        }
+
+        function Footer (props) {
+            return (
+                <footer>
+                    <p>Copyrights {props.year}</p>
+                </footer>
+            );
+        }
+
+        // in Collection() method, we have to add a <div> to wrap the other elements.
+        // but this makes the code less readability and complex. To overcome that we can add 
+        // <React.Fragment>
+
+        function Collection (props) {
+            return (
+                <React.Fragment>
+                    <Header type="Student"/>
+                    <Subject subject = {subjectObject}/>
+                    <Footer year={new Date().getFullYear()}/>
+                </React.Fragment>
+            );
+             
+        }
+
+        ReactDOM.render(
+            <Collection/>,
+            document.getElementById("fragments")
+        )
+    </script>
+</body>
+</html>

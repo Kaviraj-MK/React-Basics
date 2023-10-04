@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Image Input</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script 
+      src="https://unpkg.com/babel-standalone@6/babel.min.js"
+      crossorigin
+    ></script>
+</head>
+<body>
+    <div id="imageReference"></div>
+    <script type="text/babel">
+        function Header (props) {
+            return (
+                <header>
+                    <h1>{props.name}'s Profile</h1>
+                </header>
+            );
+        }            
+        function Footer (props) {
+            return (
+                <footer>
+                    <p>Copyright {props.year}</p>    
+                </footer>
+            );
+        }
+        const subjects = ["Sinhala", "Maths", "Science", "English"];
+        const subject = subjects.map(
+            (subjectName, index) => (
+                {
+                    key: index,
+                    value: subjectName
+                }
+            )
+        );
+        function Subjects (props) {
+            return (
+                <section>
+                    <img src="https://images.pexels.com/photos/132466/pexels-photo-132466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    height={200}
+                    alt="sameeha as a flower"
+                    />
+                    <ul>
+                        {props.subjectName.map((subject) => (
+                            <li key = {subject.key}>{subject.value}</li>
+                        ))}
+                    </ul>
+                </section>
+            );
+        }
+
+        function Collection (props) {
+            return (
+                <div>
+                <Header name = "Sameeha"/>
+                <Subjects subjectName = {subject}/>
+            </div>
+            );
+        }
+
+        ReactDOM.render(
+            <Collection/>,
+            document.getElementById("imageReference")
+        );
+    </script>
+</body>
+</body>
+</html>
