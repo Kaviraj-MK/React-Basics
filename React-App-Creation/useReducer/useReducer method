@@ -1,0 +1,7 @@
+# useReducer method
+const[initialCheck, setMoethod] = useReducer(()=> {}, initialStatus)
+
+# In useReducerMethod first we add the function that we used to update. Then the initial state.
+
+https://react.dev/learn/extracting-state-logic-into-a-reducer => follow the link for the details
+
