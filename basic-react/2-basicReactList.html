@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Basic List</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+</head>
+<body>
+    <div id="topList"></div>
+    <div id="bottomList"></div>
+    <script type="text/javascript">
+        const topList = ReactDOM.createRoot(document.getElementById('topList'));
+        let  topListContent = React.createElement(
+            "ul",
+            { style: { color : "red"} },
+            React.createElement("li", null, "bmw"),
+            React.createElement("li", null, "benz"),
+            React.createElement("li", null, "audi")
+        );
+        const bottomList = ReactDOM.createRoot(document.getElementById("bottomList"));
+        const bottomListContent = React.createElement(
+          "ul",
+          {style : { color : "blue" } },
+          React.createElement("li", null, "lily"),
+          React.createElement("li", null, "rose"),
+          React.createElement("li", null, "lavander")
+        );
+        bottomList.render(bottomListContent);
+        topList.render(topListContent);
+    </script>
+</body>
+</html>
