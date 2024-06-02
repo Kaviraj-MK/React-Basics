@@ -21,7 +21,11 @@
         const topList = ReactDOM.createRoot(document.getElementById('topList'));
         let  topListContent = React.createElement(
             "ul",
-            { style: { color : "red"} },
+            {
+              style : {
+                color : "brown"
+              }
+            },
             React.createElement("li", null, "bmw"),
             React.createElement("li", null, "benz"),
             React.createElement("li", null, "audi")
@@ -29,7 +33,11 @@
         const bottomList = ReactDOM.createRoot(document.getElementById("bottomList"));
         const bottomListContent = React.createElement(
           "ul",
-          {style : { color : "blue" } },
+          {
+            style : {
+              color : "magenta"
+            }
+          },
           React.createElement("li", null, "lily"),
           React.createElement("li", null, "rose"),
           React.createElement("li", null, "lavander")
